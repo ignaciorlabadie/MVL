@@ -47,11 +47,9 @@ async function init() {
 function render(ventas: Awaited<ReturnType<typeof fetchVentas>>) {
   tbody.innerHTML = ventas.map((v) =>
     `<tr>
-      <td>${v.id}</td>
       <td>${v.productos.nombre}</td>
       <td>${v.cantidad}</td>
-      <td>$${(Number(v.productos.precio) * v.cantidad).toFixed(2)}</td>
-      <td>${new Date(v.fecha).toLocaleString()}</td>
+      <td class="fecha-cell">${new Date(v.fecha).toLocaleDateString()}</td>
     </tr>`
   ).join("");
 }
