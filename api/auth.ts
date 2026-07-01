@@ -16,6 +16,6 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(401).json({ error: "Contraseña incorrecta" });
   }
 
-  const token = jwt.sign({ role: "admin" }, jwtSecret, { expiresIn: "7d" });
+  const token = jwt.sign({ role: "admin" }, jwtSecret, { expiresIn: "30d" });
   res.json({ token });
 }
