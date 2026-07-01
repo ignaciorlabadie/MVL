@@ -130,3 +130,11 @@ th {
   border-radius: 6px;
   margin-bottom: 1rem;
 }
+
+#precios-actuales {
+  padding: 0.75rem 1rem;
+  background: #f0f4ff;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}

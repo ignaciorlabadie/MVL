@@ -1,17 +1,29 @@
 import { fetchColores, agregarColor, fetchPrecios, guardarPrecios } from "./lib/api.js";
 
+const spanPulsera = document.getElementById("precio-pulsera-actual")!;
+const spanAnillo = document.getElementById("precio-anillo-actual")!;
+
+function mostrarPrecios(precios: { pulsera: number; anillo: number }) {
+  spanPulsera.textContent = precios.pulsera.toFixed(2);
+  spanAnillo.textContent = precios.anillo.toFixed(2);
+}
+
 async function init() {
   const [colores, preciosBase] = await Promise.all([fetchColores(), fetchPrecios()]);
+
+  mostrarPrecios(preciosBase);
 
   (document.getElementById("precio-pulsera") as HTMLInputElement).value = preciosBase.pulsera?.toString() || "";
   (document.getElementById("precio-anillo") as HTMLInputElement).value = preciosBase.anillo?.toString() || "";
 
   document.getElementById("precios-form")!.addEventListener("submit", async (e) => {
     e.preventDefault();
-    await guardarPrecios({
+    const precios = {
       pulsera: parseFloat((document.getElementById("precio-pulsera") as HTMLInputElement).value),
       anillo: parseFloat((document.getElementById("precio-anillo") as HTMLInputElement).value),
-    });
+    };
+    await guardarPrecios(precios);
+    mostrarPrecios(precios);
   });
 
   const listaColores = document.getElementById("lista-colores")!;

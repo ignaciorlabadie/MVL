@@ -14,9 +14,12 @@ async function init() {
 
   selectColor.innerHTML = colores.map((c) => `<option value="${c}">${c}</option>`).join("");
 
-  selectTipo.addEventListener("change", () => {
+  function actualizarPrecio() {
     inputPrecio.value = preciosBase[selectTipo.value as "pulsera" | "anillo"]?.toString() || "";
-  });
+  }
+
+  selectTipo.addEventListener("change", actualizarPrecio);
+  actualizarPrecio();
 
   document.getElementById("venta-form")!.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -30,7 +33,7 @@ async function init() {
 
     (e.target as HTMLFormElement).reset();
     selectTipo.value = "pulsera";
-    inputPrecio.value = preciosBase.pulsera?.toString() || "";
+    actualizarPrecio();
     render(await fetchVentas());
   });
 
