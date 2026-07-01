@@ -46,12 +46,17 @@ async function init() {
   render(ventas);
 }
 
+function formatearFecha(fecha: string) {
+  const p = fecha.split("T")[0].split("-");
+  return `${p[2]}/${p[1]}/${p[0]}`;
+}
+
 function render(ventas: Awaited<ReturnType<typeof fetchVentas>>) {
   tbody.innerHTML = ventas.map((v) =>
     `<tr>
       <td>${v.productos.nombre}</td>
       <td>${v.cantidad}</td>
-      <td class="fecha-cell">${new Date(v.fecha).toLocaleDateString()}</td>
+      <td class="fecha-cell">${formatearFecha(v.fecha)}</td>
     </tr>`
   ).join("");
 }

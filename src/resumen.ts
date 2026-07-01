@@ -11,14 +11,14 @@ async function init() {
   const anillos = new Map<string, { total: number; cant: number }>();
 
   for (const v of ventas) {
-    const d = new Date(v.fecha);
-    const mes = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    const [año, mes] = v.fecha.split("T")[0].split("-");
+    const mesKey = `${año}-${mes}`;
     const subtotal = Number(v.productos.precio) * v.cantidad;
 
-    const m = meses.get(mes) || { total: 0, cant: 0 };
+    const m = meses.get(mesKey) || { total: 0, cant: 0 };
     m.total += subtotal;
     m.cant += v.cantidad;
-    meses.set(mes, m);
+    meses.set(mesKey, m);
 
     const mapa = v.productos.tipo === "pulsera" ? pulseras : anillos;
     const color = v.productos.color;

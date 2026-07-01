@@ -13,7 +13,7 @@ create table ventas (
   id serial primary key,
   producto_id integer not null references productos(id),
   cantidad integer not null check (cantidad > 0),
-  fecha timestamptz default now()
+  fecha date default current_date
 );
 
 create table colores (
