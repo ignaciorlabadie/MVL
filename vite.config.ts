@@ -11,6 +11,7 @@ export default defineConfig({
         index: "src/index.html",
         resumen: "src/resumen.html",
         config: "src/config.html",
+        login: "src/login.html",
       },
     },
   },

@@ -14,6 +14,7 @@
         <a href="index.html" class="active">Ventas</a>
         <a href="resumen.html">Resumen</a>
         <a href="config.html">Config</a>
+        <a href="#" id="btn-logout" style="color:#d32f2f">Salir</a>
       </nav>
     </header>
 
@@ -36,6 +37,9 @@
         <label>Cantidad:
           <input type="number" id="venta-cantidad" min="1" required />
         </label>
+        <label>Fecha:
+          <input type="date" id="venta-fecha" required />
+        </label>
         <button type="submit">Registrar Venta</button>
       </form>
     </section>
@@ -43,7 +47,7 @@
     <section>
       <h2>Ventas</h2>
       <table id="tabla-ventas">
-        <thead><tr><th>Producto</th><th>Cantidad</th><th>Fecha</th></tr></thead>
+        <thead><tr><th>Producto</th><th>Cantidad</th><th>Fecha</th><th></th></tr></thead>
         <tbody></tbody>
       </table>
     </section>

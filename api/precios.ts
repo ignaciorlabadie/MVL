@@ -1,8 +1,10 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { supabase } from "./_supabase.js";
 import { error, validarNumero } from "./_validar.js";
+import { verificarToken } from "./_auth.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (!verificarToken(req, res)) return;
   if (req.method === "GET") {
     const { data, error: err } = await supabase.from("precios_base").select("*");
     if (err) return error(res, err.message);
