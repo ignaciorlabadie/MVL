@@ -11,12 +11,14 @@
     "typecheck": "tsc --noEmit && tsc --project tsconfig.api.json --noEmit"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^26.1.0",
     "@vercel/node": "^5.8.22",
     "typescript": "^6.0.3",
     "vite": "^8.1.2"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.110.0"
+    "@supabase/supabase-js": "^2.110.0",
+    "jsonwebtoken": "^9.0.3"
   }
 }
