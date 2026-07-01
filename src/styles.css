@@ -152,8 +152,13 @@ th {
   cursor: not-allowed;
 }
 
-@media (max-width: 600px) {
-  body { padding: 1rem; }
+@media (max-width: 640px) {
+  body { padding: 0.75rem; }
   header { flex-direction: column; align-items: start; gap: 0.75rem; }
-  th, td { padding: 0.4rem; font-size: 0.85rem; }
+  nav { flex-wrap: wrap; }
+  nav a { font-size: 0.85rem; padding: 0.4rem 0.75rem; }
+  section { padding: 1rem; }
+  h2 { font-size: 1.1rem; }
+  th, td { padding: 0.35rem; font-size: 0.8rem; }
+  #total-acumulado { font-size: 1.1rem; }
 }
