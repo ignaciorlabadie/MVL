@@ -31,6 +31,8 @@ async function init() {
     const precio = parseFloat(inputPrecio.value);
     const cantidad = parseInt((document.getElementById("venta-cantidad") as HTMLInputElement).value);
 
+    if (isNaN(precio) || precio < 0 || isNaN(cantidad) || cantidad < 1) return;
+
     await crearVenta(tipo === "pulsera" ? `Pulsera ${color}` : `Anillo ${color}`, precio, color, tipo, cantidad);
 
     (e.target as HTMLFormElement).reset();
