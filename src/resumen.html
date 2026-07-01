@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MVL - Resumen</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>MVL</h1>
+      <nav>
+        <a href="index.html">Ventas</a>
+        <a href="resumen.html" class="active">Resumen</a>
+        <a href="config.html">Config</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Resumen</h2>
+
+      <div id="total-acumulado">
+        <strong>Total acumulado:</strong> <span id="total-global">$0.00</span>
+      </div>
+
+      <h3>Resumen por Mes</h3>
+      <table id="tabla-meses">
+        <thead><tr><th>Mes</th><th>Total</th><th>Cantidad</th></tr></thead>
+        <tbody></tbody>
+      </table>
+
+      <h3>Pulseras por Color</h3>
+      <table id="tabla-pulseras-color">
+        <thead><tr><th>Color</th><th>Cantidad</th><th>Total</th></tr></thead>
+        <tbody></tbody>
+      </table>
+
+      <h3>Anillos por Color</h3>
+      <table id="tabla-anillos-color">
+        <thead><tr><th>Color</th><th>Cantidad</th><th>Total</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+  <script type="module" src="resumen.ts"></script>
+</body>
+</html>

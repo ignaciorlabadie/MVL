@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MVL - Ventas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>MVL</h1>
+      <nav>
+        <a href="index.html" class="active">Ventas</a>
+        <a href="resumen.html">Resumen</a>
+        <a href="config.html">Config</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Registrar Venta</h2>
+      <form id="venta-form">
+        <label>Tipo:
+          <select id="venta-tipo">
+            <option value="pulsera">Pulsera</option>
+            <option value="anillo">Anillo</option>
+          </select>
+        </label>
+        <label>Color:
+          <select id="venta-color" required></select>
+        </label>
+        <label>Precio unitario:
+          <input type="number" id="venta-precio" step="0.01" required />
+        </label>
+        <label>Cantidad:
+          <input type="number" id="venta-cantidad" value="1" min="1" required />
+        </label>
+        <button type="submit">Registrar Venta</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Ventas</h2>
+      <table id="tabla-ventas">
+        <thead><tr><th>ID</th><th>Producto</th><th>Cantidad</th><th>Total</th><th>Fecha</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+  <script type="module" src="ventas.ts"></script>
+</body>
+</html>

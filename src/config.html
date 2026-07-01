@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MVL - Config</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>MVL</h1>
+      <nav>
+        <a href="index.html">Ventas</a>
+        <a href="resumen.html">Resumen</a>
+        <a href="config.html" class="active">Config</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Precios Base</h2>
+      <form id="precios-form">
+        <label>Pulsera: $ <input type="number" id="precio-pulsera" step="0.01" required /></label>
+        <label>Anillo: $ <input type="number" id="precio-anillo" step="0.01" required /></label>
+        <button type="submit">Guardar Precios</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Agregar Color</h2>
+      <form id="color-form">
+        <label>Nuevo color:
+          <input type="text" id="nuevo-color" required />
+        </label>
+        <button type="submit">Agregar Color</button>
+      </form>
+
+      <h3>Colores disponibles</h3>
+      <ul id="lista-colores"></ul>
+    </section>
+  </div>
+  <script type="module" src="config.ts"></script>
+</body>
+</html>
