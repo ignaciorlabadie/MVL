@@ -21,7 +21,8 @@
       <h2>Registrar Venta</h2>
       <form id="venta-form">
         <label>Tipo:
-          <select id="venta-tipo">
+          <select id="venta-tipo" required>
+            <option value="">Seleccionar...</option>
             <option value="pulsera">Pulsera</option>
             <option value="anillo">Anillo</option>
           </select>
@@ -33,7 +34,7 @@
           <input type="number" id="venta-precio" step="0.01" required />
         </label>
         <label>Cantidad:
-          <input type="number" id="venta-cantidad" value="1" min="1" required />
+          <input type="number" id="venta-cantidad" min="1" required />
         </label>
         <button type="submit">Registrar Venta</button>
       </form>

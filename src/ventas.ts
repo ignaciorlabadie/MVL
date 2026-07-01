@@ -12,14 +12,16 @@ async function init() {
     fetchVentas(),
   ]);
 
-  selectColor.innerHTML = colores.map((c) => `<option value="${c}">${c}</option>`).join("");
+  selectColor.innerHTML = `<option value="">Seleccionar...</option>` +
+    colores.map((c) => `<option value="${c}">${c}</option>`).join("");
 
   function actualizarPrecio() {
-    inputPrecio.value = preciosBase[selectTipo.value as "pulsera" | "anillo"]?.toString() || "";
+    if (!selectTipo.value) { inputPrecio.value = ""; return; }
+    const p = preciosBase[selectTipo.value as "pulsera" | "anillo"];
+    inputPrecio.value = p && p > 0 ? p.toString() : "";
   }
 
   selectTipo.addEventListener("change", actualizarPrecio);
-  actualizarPrecio();
 
   document.getElementById("venta-form")!.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -32,8 +34,10 @@ async function init() {
     await crearVenta(tipo === "pulsera" ? `Pulsera ${color}` : `Anillo ${color}`, precio, color, tipo, cantidad);
 
     (e.target as HTMLFormElement).reset();
-    selectTipo.value = "pulsera";
-    actualizarPrecio();
+    selectTipo.value = "";
+    selectColor.innerHTML = `<option value="">Seleccionar...</option>` +
+      colores.map((c) => `<option value="${c}">${c}</option>`).join("");
+    inputPrecio.value = "";
     render(await fetchVentas());
   });
 
